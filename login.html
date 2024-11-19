@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <!-- Include Boxicons for icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/boxicons@2.1.1/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- External CSS -->
+    <link rel="stylesheet" href="./CSS/login.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <form method="post" id="logInForm" novalidate>
+          <h2 style="text-align: center; color: #0169b8">COLLEGE MANAGEMENT</h2>
+          <div class="input-box">
+            <input
+              type="number"
+              placeholder="Mobile Number"
+              id="mobileNumber"
+              required
+            />
+            <i class="bx bxs-phone" style="cursor: default"></i>
+            <span id="mobileNumberError" class="error-message"
+              >Mobile Number is Required</span
+            >
+          </div>
+
+          <div class="input-box">
+            <input
+              type="password"
+              placeholder="Password"
+              id="password"
+              required
+              aria-label="Password"
+            />
+            <i
+              class="bx bxs-show"
+              onclick="togglePasswordVisibility()"
+              aria-label="Toggle password visibility"
+            ></i>
+            <span id="passwordError" class="error-message"
+              >Password is Required</span
+            >
+          </div>
+          <button type="button" class="btn" onclick="logIn()">Login</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <!-- External JS -->
+    <script src="./JS/login.js"></script>
+    <script src="./JS/backend.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+</html>

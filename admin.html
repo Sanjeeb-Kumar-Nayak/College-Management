@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+    <!-- jQuery Data Table CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css"
+    />
+    <link rel="stylesheet" href="./CSS/common.css" />
+  </head>
+  <body id="body-pd">
+    <header class="header" id="header">
+      <div class="header_toggle">
+        <i class="bx bx-menu" id="header-toggle"></i>
+      </div>
+      <h4 style="color: #0169b8"><b>COLLEGE&nbsp;&nbsp;MANAGEMENT</b></h4>
+      <a style="color: #0169b8">
+        <i class="bx bx-user nav_icon"></i>
+        <span class="nav_name">Admin</span>
+      </a>
+    </header>
+    <div class="l-navbar" id="nav-bar">
+      <nav class="nav">
+        <div>
+          <div class="nav_list">
+            <a href="admin.html" class="nav_link">
+              <i class="bx bx-group nav_icon"></i>
+              <span class="nav_name">Students</span>
+            </a>
+            <a href="addStudentAttendence.html" class="nav_link">
+              <i class="bx bx-message-square-detail nav_icon"></i>
+              <span class="nav_name">Attendence</span>
+            </a>
+            <a href="addStudentResult.html" class="nav_link">
+              <i class="bx bx-bookmark nav_icon"></i>
+              <span class="nav_name">Results</span>
+            </a>
+          </div>
+        </div>
+        <a class="nav_link" onclick="logOut()" style="cursor: pointer">
+          <i class="bx bx-log-out nav_icon"></i>
+          <span class="nav_name">Log Out</span>
+        </a>
+      </nav>
+    </div>
+
+    <!--Container Main start-->
+    <div class="main-content">
+      <!-- Page Content -->
+      <div class="page-content">
+        <div class="container-fluid">
+          <!-- Create Student -->
+          <div class="row" style="margin-top: 80px">
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-header align-items-center d-flex bg-success">
+                  <h4
+                    class="card-title mb-0 flex-grow-1 text-white"
+                    id="addStudent"
+                  >
+                    Add Student
+                  </h4>
+                </div>
+
+                <div class="card-body">
+                  <form
+                    class="needs-validation"
+                    method="post"
+                    novalidate
+                    id="createStudent"
+                  >
+                    <div class="live-preview">
+                      <div class="row gy-4">
+                        <!-- Name -->
+                        <div class="col-xxl-3 col-md-3">
+                          <input
+                            id="name"
+                            class="form-control"
+                            type="text"
+                            placeholder="Enter Name"
+                            required
+                          />
+                          <span id="nameError" class="error-message"
+                            >Name is Required</span
+                          >
+                        </div>
+
+                        <!-- Branch -->
+                        <div class="col-xxl-3 col-md-3">
+                          <select id="branch" class="form-select" required>
+                            <option value="0">Select Branch</option>
+                            <option value="1">CSE</option>
+                            <option value="2">IT</option>
+                          </select>
+                          <span id="branchError" class="error-message"
+                            >Branch is Required</span
+                          >
+                        </div>
+
+                        <!-- Mobile Number -->
+                        <div class="col-xxl-3 col-md-3">
+                          <input
+                            id="mobileNumber"
+                            class="form-control"
+                            type="number"
+                            placeholder="Enter Mobile Number"
+                            required
+                          />
+                          <span id="mobileNumberError" class="error-message"
+                            >Mobile Number is Required</span
+                          >
+                        </div>
+
+                        <!-- Email -->
+                        <div class="col-xxl-3 col-md-3">
+                          <input
+                            id="email"
+                            class="form-control"
+                            type="email"
+                            placeholder="Enter Email"
+                            required
+                          />
+                          <span id="emailError" class="error-message"
+                            >Email is Required</span
+                          >
+                        </div>
+
+                        <!-- Password -->
+                        <div class="col-xxl-3 col-md-3">
+                          <input
+                            id="password"
+                            class="form-control"
+                            type="text"
+                            placeholder="Enter Password"
+                            required
+                          />
+                          <span id="passwordError" class="error-message"
+                            >Password is Required</span
+                          >
+                        </div>
+
+                        <!-- Address -->
+                        <div class="col-xxl-9 col-md-9">
+                          <input
+                            id="address"
+                            class="form-control"
+                            type="text"
+                            placeholder="Enter Your Address"
+                            required
+                          />
+                          <span id="addressError" class="error-message"
+                            >Address is Required</span
+                          >
+                        </div>
+
+                        <!-- Button -->
+                        <div class="row">
+                          <div class="col-lg-12 mt-4">
+                            <div
+                              class="d-flex flex-wrap gap-2 mb-3 mb-lg-0 justify-content-center"
+                            >
+                              <button
+                                id="studentFormSubmit"
+                                type="button"
+                                class="btn btn-success btn-label rounded-pill"
+                                onclick="addStudent()"
+                              >
+                                <i
+                                  class="ri-send-plane-fill label-icon align-middle rounded-pill fs-16 me-2"
+                                ></i>
+                                Submit
+                              </button>
+
+                              <button
+                                id="studentFormReset"
+                                type="button"
+                                class="btn btn-danger btn-label rounded-pill"
+                                onclick="onClickReset()"
+                              >
+                                <i
+                                  class="ri-restart-fill label-icon align-middle rounded-pill fs-16 me-2"
+                                ></i>
+                                Reset
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Listing Student -->
+          <div class="row mt-3">
+            <div class="col-lg-12">
+              <div class="card">
+                <div
+                  class="card-header align-items-center d-flex bg-success"
+                  style="margin-bottom: -10px"
+                >
+                  <h4 class="card-title mb-0 flex-grow-1 text-white">
+                    Student Details
+                  </h4>
+                </div>
+
+                <div class="card-body">
+                  <div class="live-preview">
+                    <div class="table-responsive">
+                      <table
+                        class="table table-bordered mt-2"
+                        id="studentList"
+                        style="width: 100%; table-layout: fixed"
+                      >
+                        <thead>
+                          <tr>
+                            <th style="font-size: 12px">Name</th>
+                            <th style="font-size: 12px">Branch</th>
+                            <th style="font-size: 12px">Mobile Number</th>
+                            <th style="font-size: 12px">E-Mail</th>
+                            <th style="font-size: 12px">Address</th>
+                          </tr>
+                        </thead>
+                        <tbody></tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <!-- jQuery Data Table -->
+    <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+    <script src="./JS/admin.js"></script>
+    <script src="./JS/backend.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+</html>

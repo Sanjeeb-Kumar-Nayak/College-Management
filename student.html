@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+    <!-- jQuery Data Table CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css"
+    />
+    <link rel="stylesheet" href="./CSS/common.css" />
+  </head>
+  <body id="body-pd">
+    <header class="header" id="header">
+      <div class="header_toggle">
+        <i class="bx bx-menu" id="header-toggle"></i>
+      </div>
+      <h4 style="color: #0169b8"><b>COLLEGE&nbsp;&nbsp;MANAGEMENT</b></h4>
+      <a style="color: #0169b8">
+        <i class="bx bx-user nav_icon"></i>
+        <span class="nav_name">Student</span>
+      </a>
+    </header>
+    <div class="l-navbar" id="nav-bar">
+      <nav class="nav">
+        <div>
+          <div class="nav_list">
+            <a class="nav_link" onclick="logOut()" style="cursor: pointer">
+              <i class="bx bx-log-out nav_icon"></i>
+              <span class="nav_name">Log Out</span>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <!--Container Main start-->
+    <div class="main-content">
+      <!-- Page Content -->
+      <div class="page-content">
+        <div class="container-fluid">
+          <!-- Student Information -->
+          <div class="row" style="margin-top: 80px">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+              <div class="card">
+                <div
+                  class="card-header align-items-center d-flex justify-content-center bg-success"
+                >
+                  <h4 class="card-title mb-0 text-white" id="viewStudent">
+                    Information
+                  </h4>
+                </div>
+                <div class="card-body text-center">
+                  <!-- User Icon -->
+                  <div class="user-icon">
+                    <img
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtuphMb4mq-EcVWhMVT8FCkv5dqZGgvn_QiA&s"
+                      alt="User Icon"
+                      class="rounded-circle"
+                      style="width: 100px; height: 100px"
+                    />
+                  </div>
+
+                  <!-- Student Details View -->
+                  <div style="margin-top: 20px">
+                    <div id="studentName"><strong>Name:</strong></div>
+                    <div id="branch"><strong>Branch:</strong></div>
+                    <div id="mobileNumber"><strong>Phone Number:</strong></div>
+                    <div id="email"><strong>Email:</strong></div>
+                    <div id="address"><strong>Address:</strong></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4"></div>
+          </div>
+
+          <!-- Student Attendence -->
+          <div class="row mt-3">
+            <div class="col-lg-12">
+              <div class="card">
+                <div
+                  class="card-header align-items-center d-flex bg-success"
+                  style="margin-bottom: -10px"
+                >
+                  <h4
+                    class="card-title mb-0 flex-grow-1 text-white justify-content-center d-flex"
+                  >
+                    Attendance
+                  </h4>
+                </div>
+
+                <div class="card-body">
+                  <div class="live-preview">
+                    <div class="table-responsive">
+                      <table
+                        class="table table-bordered mt-2"
+                        id="attendenceList"
+                        style="width: 100%; table-layout: fixed"
+                      >
+                        <thead>
+                          <tr>
+                            <th style="font-size: 12px">Subject</th>
+                            <th style="font-size: 12px">Year</th>
+                            <th style="font-size: 12px">Month</th>
+                            <th style="font-size: 12px">Total Class</th>
+                            <th style="font-size: 12px">Attend Class</th>
+                          </tr>
+                        </thead>
+                        <tbody></tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Student Result -->
+          <div class="row mt-3">
+            <div class="col-lg-12">
+              <div class="card">
+                <div
+                  class="card-header align-items-center d-flex bg-success"
+                  style="margin-bottom: -10px"
+                >
+                  <h4
+                    class="card-title mb-0 flex-grow-1 text-white justify-content-center d-flex"
+                  >
+                    Result
+                  </h4>
+                </div>
+
+                <div class="card-body">
+                  <div class="live-preview">
+                    <div class="table-responsive">
+                      <table
+                        class="table table-bordered mt-2"
+                        id="resultList"
+                        style="width: 100%; table-layout: fixed"
+                      >
+                        <thead>
+                          <tr>
+                            <th style="font-size: 12px">Semester</th>
+                            <th style="font-size: 12px">Internal</th>
+                            <th style="font-size: 12px">Subject</th>
+                            <th style="font-size: 12px">Total Mark</th>
+                            <th style="font-size: 12px">Scored Mark</th>
+                          </tr>
+                        </thead>
+                        <tbody></tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <!-- jQuery Data Table -->
+    <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+    <script src="./JS/student.js"></script>
+    <script src="./JS/backend.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+</html>
